@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { Contact } from '../models/contact';
+import { FormNewContactComponent } from "./form-new-contact/form-new-contact.component";
 
 @Component({
-  selector: 'app-contact',
-  standalone: true,
-  imports: [],
-  templateUrl: './contact.component.html',
-  styleUrl: './contact.component.css',
+    selector: 'app-contact',
+    standalone: true,
+    templateUrl: './contact.component.html',
+    styleUrl: './contact.component.css',
+    imports: [FormNewContactComponent]
 })
 export class ContactComponent {
   contacts: Contact[] = [];
