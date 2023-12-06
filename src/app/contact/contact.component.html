@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row w-50">
+    <h1>Formulario de contacto</h1>
+    <app-form-new-contact (addContact)="addContact($event)"></app-form-new-contact>
+  </div>
+  <div class="row w-50">
+    <h2>Peticiones</h2>
+    <app-all-contact [listContact]="contacts"></app-all-contact>
+  </div>
+</div>

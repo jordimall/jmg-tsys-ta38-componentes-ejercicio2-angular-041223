@@ -1,0 +1,57 @@
+<form [formGroup]="contactForm" (ngSubmit)="crearContact()" class="mt-3">
+  <div class="mb-3">
+    <label for="" class="form-label">Nombre</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Nombre y apellido"
+      formControlName="name"
+    />
+    @if (contactForm.get('name')?.hasError('required') &&
+    contactForm.get('name')?.touched) {
+    <span class="text-danger">Introduzca su nombre y apellido</span>
+    }
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Email</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="ejemplo@dominio.com"
+      formControlName="email"
+    />
+    @if (contactForm.get('email')?.hasError('required') &&
+    contactForm.get('email')?.touched) {
+    <span class="text-danger">Introduzca un email</span>
+    } @else if (contactForm.get('email')?.hasError('email') &&
+    contactForm.get('email')?.touched) {
+    <span class="text-danger">Introduzca un email valido</span>
+    }
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Mensaje</label>
+    <textarea class="form-control" formControlName="message"></textarea>
+    @if (contactForm.get('message')?.hasError('required') &&
+    contactForm.get('message')?.touched) {
+    <span class="text-danger">Introduzca un mensaje</span>
+    }
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">2 + 3 = ?</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Respuesta"
+      formControlName="result"
+    />
+    @if (contactForm.get('result')?.hasError('required')&&
+    contactForm.get('result')?.touched) {
+    <span class="text-danger">Introduzca una respuesta</span>
+    } @else if (contactForm.get('result')?.hasError('pattern')) {
+    <span class="text-danger">Respuesta incorrecta</span>
+    }
+  </div>
+  <button [disabled]="!contactForm.valid" type="submit" class="btn btn-primary">
+    Enviar
+  </button>
+</form>
