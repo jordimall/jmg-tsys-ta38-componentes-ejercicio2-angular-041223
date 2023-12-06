@@ -38,6 +38,7 @@ export class FormNewContactComponent {
         this.validarCampos(this.contactForm.value.message)
       )
     );
+    this.contactForm.reset();
   };
 
   private validarCampos = (value: any): string => {
